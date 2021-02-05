@@ -91,9 +91,7 @@ keepaspectratio]{DWGs/cover.png}%
 	
     \fontsize{24}{10}\selectfont {Proof of the associative law for matrices}
     
-      \vspace{1ex}
-   \fontsize{10}{10}\selectfont {kamilazdybal.github.io/science-docs}
-          
+    
   \noindent%
     
 \vskip1ex
@@ -110,52 +108,55 @@ keepaspectratio]{DWGs/cover.png}%
 %%% HEADER END -----------------------------------------------------------
 % ------------------------------------------------------------------------
 
-
+\vspace{10mm}
 
 \setlength{\parindent}{0cm}
 
+\fontsize{14}{10}\selectfont {Kamila Zdybał}
+
+\vspace{2mm}
+
+\fontsize{8}{10}\selectfont {\textit{kamilazdybal.github.io/science-docs, kamila.zdybal@gmail.com}}
 
 \setlength{\parskip}{1em}
 \renewcommand{\baselinestretch}{1.0}
 
 \section*{Motivation}\label{chap:motivation}
 
-I was reviewing the MIT course 18.06 in Linear Algebra by Professor Gilbert Strang and the associative law for matrices first appeared on the blackboard in more or less this way:
+I was reviewing the MIT course 18.06 on Linear Algebra by Professor Gilbert Strang and the associative law for matrices first appeared on the blackboard in more or less this way:
 
 \begin{equation} \label{eq:proof}
 (\bm{A} \bm{B}) \bm{C} = \bm{A} (\bm{B} \bm{C}) 
 \end{equation}
 
 
-Professor Strang said then:
+Professor Strang said then: \textit{"It's not that easy to prove that this is correct. You have to go into the gory details of matrix multiplication, do it both ways and see that you come out the same."} So I said: \textit{let's do it!}
 
-\textit{"It's not that easy to prove that this is correct. You have to go into the gory details of matrix multiplication, do it both ways and see that you come out the same."}
-
-So I said: \textit{let's do it!}
+This short note contains the proof of eq.(\ref{eq:proof}).
 
 \section*{Proof}
 
-Suppose now we have matrices $\bm{A}$ size $(m \times n)$, $\bm{B}$ size $(n \times p)$ and $\bm{C}$ size $(p \times r)$. We are going to prove that the relation from the eq.(\ref{eq:proof}) holds for these matrices.
+Suppose we have three matrices: $\bm{A}$ of size $(m \times n)$, $\bm{B}$ of size $(n \times p)$ and $\bm{C}$ of size $(p \times r)$. We are going to prove that the relation from the eq.(\ref{eq:proof}) holds for these matrices.
 
-We start off with the general equation for the $i^{th} j^{th}$ element of the matrix that is a result of multiplication of two matrices $\bm{A}$ and $\bm{B}$, it can be found in a linear algebra textbook to be:
+We start off with the general equation for the $i$th-$j$th element of a matrix that is a result of multiplication of two matrices $\bm{A}$ and $\bm{B}$. This can be found in a linear algebra textbook to be:
 
 \begin{equation}
 \gamma_{ij}^{AB} = \sum_{k=1}^{n} (a_{ik} b_{kj})
 \end{equation}
 
-And the general equation for the $i^{th} j^{th}$ element of the matrix that results in multiplication of matrices $\bm{B}$ and $\bm{C}$ first is:
+Similarly, the general equation for the $i$th-$j$th element of a matrix that is a result of multiplication of matrices $\bm{B}$ and $\bm{C}$ is:
 
 \begin{equation}
 \gamma_{ij}^{BC} = \sum_{k=1}^{p} (b_{ik} c_{kj})
 \end{equation}
 
-We write the general equation for the $i^{th} j^{th}$ element of the matrix that results in complete multiplication $(\bm{A} \bm{B}) \bm{C}$:
+We then write the general equation for the $i$th-$j$th element of a matrix that is a result of the complete multiplication $(\bm{A} \bm{B}) \bm{C}$:
 
 \begin{equation} \label{eq:ab_c}
 \gamma_{ij}^{(AB)C} = \sum_{l=1}^{p} \Big( \big( \sum_{k=1}^{n} (a_{ik} b_{kl}) \big) c_{lj} \Big)
 \end{equation}
 
-And we write the general equation for the $i^{th} j^{th}$ element of the matrix that results in complete multiplication $\bm{A} (\bm{B} \bm{C})$:
+and the general equation for the $i$th-$j$th element of a matrix that is a result of the complete multiplication $\bm{A} (\bm{B} \bm{C})$:
 
 \begin{equation} \label{eq:a_bc}
 \gamma_{ij}^{A(BC)} = \sum_{h=1}^{n} \Big(  a_{ih} \big( \sum_{k=1}^{p} (b_{hk} c_{kj}) \big) \Big)
@@ -189,22 +190,16 @@ For eq.(\ref{eq:a_bc}) we have:
 \end{split}
 \end{equation}
 
-In the eq.(\ref{eq:ab_c_1}) we have the final sum written in $p$ "rows" and in each row there is $n$ elements of the sum.
+In eq.(\ref{eq:ab_c_1}), we have the final sum written in $p$ "rows" and in each row there is $n$ elements of the sum.
 
-In the eq.(\ref{eq:a_bc_1}) we have the final sum written in $n$ "rows" and in each row there is $p$ elements of the sum.
+In eq.(\ref{eq:a_bc_1}), we have the final sum written in $n$ "rows" and in each row there is $p$ elements of the sum.
 
 Notice now, that the sum of all the first elements from each row of eq.(\ref{eq:ab_c_1}) is the same as the sum of all the first's row elements in the eq.(\ref{eq:a_bc_1}) (marked in orange in the equations).
 
-The same holds for the second elements from each row of eq.(\ref{eq:ab_c_1}) with the second's row elements in eq.(\ref{eq:a_bc_1}) and so on.
+The same holds for the second elements from each row of eq.(\ref{eq:ab_c_1}) with the second's row elements in eq.(\ref{eq:a_bc_1}), and so on.
 
 If we were to write all the elements in an array (that would be size $(p \times n)$ for eq.(\ref{eq:ab_c_1}) and $(n \times p)$ for eq.(\ref{eq:a_bc_1})), it would be equivalent to saying that taking the sum of elements from any column $q$ of the case $(\bm{A} \bm{B}) \bm{C}$ is the same as the sum of elements from row $q$ of the case $\bm{A} (\bm{B} \bm{C})$.
 
 This concludes the proof.\footnote{Especially that I'm running out of letters to index things.}
-
-\begin{thebibliography}{3}
-
-\item \textit{Lec 2 | MIT 18.06 Linear Algebra}, Spring 2005 \verb|https://youtu.be/QVKj3LADCnA|
-
-\end{thebibliography}
 
 \end{document}
