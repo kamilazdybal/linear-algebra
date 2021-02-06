@@ -139,33 +139,25 @@ This short note contains the proof of eq.(\ref{eq:proof}).
 Suppose we have three matrices: $\bm{A}$ of size $(m \times n)$, $\bm{B}$ of size $(n \times p)$ and $\bm{C}$ of size $(p \times r)$. We are going to prove that the relation from the eq.(\ref{eq:proof}) holds for these matrices.
 
 We start off with the general equation for the $i$th-$j$th element of a matrix that is a result of multiplication of two matrices $\bm{A}$ and $\bm{B}$. This can be found in a linear algebra textbook to be:
-
 \begin{equation}
 \gamma_{ij}^{AB} = \sum_{k=1}^{n} (a_{ik} b_{kj})
 \end{equation}
-
 Similarly, the general equation for the $i$th-$j$th element of a matrix that is a result of multiplication of matrices $\bm{B}$ and $\bm{C}$ is:
-
 \begin{equation}
 \gamma_{ij}^{BC} = \sum_{k=1}^{p} (b_{ik} c_{kj})
 \end{equation}
 
 We then write the general equation for the $i$th-$j$th element of a matrix that is a result of the complete multiplication $(\bm{A} \bm{B}) \bm{C}$:
-
 \begin{equation} \label{eq:ab_c}
 \gamma_{ij}^{(AB)C} = \sum_{l=1}^{p} \Big( \big( \sum_{k=1}^{n} (a_{ik} b_{kl}) \big) c_{lj} \Big)
 \end{equation}
-
 and the general equation for the $i$th-$j$th element of a matrix that is a result of the complete multiplication $\bm{A} (\bm{B} \bm{C})$:
-
 \begin{equation} \label{eq:a_bc}
 \gamma_{ij}^{A(BC)} = \sum_{h=1}^{n} \Big(  a_{ih} \big( \sum_{k=1}^{p} (b_{hk} c_{kj}) \big) \Big)
 \end{equation}
 
 Now we are going to take eq.(\ref{eq:ab_c}) and eq.(\ref{eq:a_bc}) and write the sums element by element.
-
 We start with eq.(\ref{eq:ab_c}):
-
 \begin{equation} \label{eq:ab_c_1}
 \begin{split}
 \gamma_{ij}^{(AB)C} = \sum_{l=1}^{p} \Big( \big( \sum_{k=1}^{n} (a_{ik} b_{kl}) \big) c_{lj} \Big) = \\
@@ -176,9 +168,7 @@ We start with eq.(\ref{eq:ab_c}):
 + \highlight{a_{i1} b_{1p} c_{pj}} + \dots + a_{in} b_{np} c_{pj}
 \end{split}
 \end{equation}
-
 For eq.(\ref{eq:a_bc}) we have:
-
 \begin{equation} \label{eq:a_bc_1}
 \begin{split}
 \gamma_{ij}^{A(BC)} = \sum_{h=1}^{n} \Big(  a_{ih} \big( \sum_{k=1}^{p} (b_{hk} c_{kj}) \big) \Big) = \\
@@ -194,12 +184,14 @@ In eq.(\ref{eq:ab_c_1}), we have the final sum written in $p$ "rows" and in each
 
 In eq.(\ref{eq:a_bc_1}), we have the final sum written in $n$ "rows" and in each row there is $p$ elements of the sum.
 
-Notice now, that the sum of all the first elements from each row of eq.(\ref{eq:ab_c_1}) is the same as the sum of all the first's row elements in the eq.(\ref{eq:a_bc_1}) (marked in orange in the equations).
-
-The same holds for the second elements from each row of eq.(\ref{eq:ab_c_1}) with the second's row elements in eq.(\ref{eq:a_bc_1}), and so on.
-
-If we were to write all the elements in an array (that would be size $(p \times n)$ for eq.(\ref{eq:ab_c_1}) and $(n \times p)$ for eq.(\ref{eq:a_bc_1})), it would be equivalent to saying that taking the sum of elements from any column $q$ of the case $(\bm{A} \bm{B}) \bm{C}$ is the same as the sum of elements from row $q$ of the case $\bm{A} (\bm{B} \bm{C})$.
+Notice now, that the sum of all the first elements from each row in eq.(\ref{eq:ab_c_1}) is the same as the sum of all the first row's elements in the eq.(\ref{eq:a_bc_1}) (marked in orange in the equations). The same holds for the second elements from each row in eq.(\ref{eq:ab_c_1}) with the second row's elements in eq.(\ref{eq:a_bc_1}), and so on. If we were to write all the elements in an array (that would be size $(p \times n)$ for eq.(\ref{eq:ab_c_1}) and $(n \times p)$ for eq.(\ref{eq:a_bc_1})), it would be equivalent to saying that taking the sum of elements from any column $q$ of the case $(\bm{A} \bm{B}) \bm{C}$ is the same as the sum of elements from row $q$ of the case $\bm{A} (\bm{B} \bm{C})$.
 
 This concludes the proof.\footnote{Especially that I'm running out of letters to index things.}
+
+\begin{thebibliography}{3}
+
+\item \textit{Lec 2 | MIT 18.06 Linear Algebra}, Spring 2005 \verb|https://youtu.be/QVKj3LADCnA|
+
+\end{thebibliography}
 
 \end{document}
